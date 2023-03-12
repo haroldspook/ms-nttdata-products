@@ -13,7 +13,7 @@ import java.util.List;
  * Clase que representa al controllador
  */
 @RestController
-@RequestMapping(path = "api/v1/customer")
+@RequestMapping(path = "api/v1/products")
 public class CustomerController {
 
     /**

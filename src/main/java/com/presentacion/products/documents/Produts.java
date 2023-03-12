@@ -21,6 +21,7 @@ public class Produts {
     @Id
     @JsonProperty("id")
     private String id;
+    private Integer numberDocument;
     private Active active;
     private Pasive pasive;
 
