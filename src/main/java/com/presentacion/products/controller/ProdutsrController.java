@@ -1,7 +1,7 @@
 package com.presentacion.products.controller;
 
 import com.presentacion.products.documents.Produts;
-import com.presentacion.products.service.impl.CustomerServiceImpl;
+import com.presentacion.products.service.impl.ProdutsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +14,13 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(path = "api/v1/products")
-public class CustomerController {
+public class ProdutsrController {
 
     /**
      * Inyectamos la clase ProductServiceImpl
      */
     @Autowired
-    private CustomerServiceImpl customerService;
+    private ProdutsServiceImpl customerService;
 
     /**
      * Método que listará los Product (Product)

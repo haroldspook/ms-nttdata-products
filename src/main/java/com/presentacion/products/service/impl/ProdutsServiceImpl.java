@@ -1,7 +1,7 @@
 package com.presentacion.products.service.impl;
 
 import com.presentacion.products.documents.Produts;
-import com.presentacion.products.repository.CustomerRepository;
+import com.presentacion.products.repository.ProdutsRepository;
 import com.presentacion.products.service.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,13 +10,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Clase que contiene la lógica del cliente respecto al CRUD
+ * Clase que contiene la lógica del Produts respecto al CRUD
  */
 @Service
-public class CustomerServiceImpl implements ProductsService {
+public class ProdutsServiceImpl implements ProductsService {
 
     @Autowired
-    private CustomerRepository customerRepository;
+    private ProdutsRepository customerRepository;
 
     /***
      * Este método listará todos los Products
