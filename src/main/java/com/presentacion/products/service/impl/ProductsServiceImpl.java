@@ -49,8 +49,7 @@ public class ProductsServiceImpl implements ProductsService {
     **/
     @Override
     public Observable<ProductsResponse> findAllByNumberDocument(Integer numberDocument) {
-       return Observable.fromIterable(productsRepository.findAll())
-               .map(products -> ProductsBuilder.productEntityToProductResponse(products))
+       return findAllProducts()
                .filter(productsResponse -> productsResponse.getNumberDocument().equals(numberDocument))
                .subscribeOn(Schedulers.io());
     }
@@ -75,6 +74,7 @@ public class ProductsServiceImpl implements ProductsService {
      **/
     @Override
     public Completable delete() {
+        log.info("Se eliminan todos los registros");
          productsRepository.deleteAll();
          return Completable.complete();
     }
