@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "numberDocument": 77777777,
+  "active": {
+    "entreprise": true,
+    "personal": true,
+    "tc": true
+  },
+  "pasive": {
+    "currentAccount": true,
+    "fixedTerm": true,
+    "saving": true
+  },
+  "createAt": "2023-03-29T06:02:43.265Z"
+}

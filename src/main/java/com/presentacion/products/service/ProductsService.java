@@ -1,8 +1,12 @@
 package com.presentacion.products.service;
 
 
-import com.presentacion.products.documents.Produts;
-import com.presentacion.products.model.Customer;
+import com.presentacion.products.model.dto.request.ProductsRequest;
+import com.presentacion.products.model.dto.response.ProductsResponse;
+import com.presentacion.products.model.thirthparthy.Customer;
+import io.reactivex.Single;
+import io.reactivex.Completable;
+import io.reactivex.Observable;
 
 import java.util.List;
 
@@ -10,9 +14,8 @@ import java.util.List;
  * Interfaz donde definimos los métodos a implementar
  */
 public interface ProductsService {
-    List<Produts> findAll();
-    List<Produts> findAllById(Integer numberDocument);
-    Produts save(Produts customer);
-    void delete();
-    List<Customer> findAllCustomer();
+    Observable<ProductsResponse> findAllProducts();
+    Observable<ProductsResponse> findAllByNumberDocument(Integer numberDocument);
+    Single<ProductsResponse> saveProduct(ProductsRequest request);
+    Completable delete();
 }
