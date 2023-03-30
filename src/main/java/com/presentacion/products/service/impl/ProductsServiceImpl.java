@@ -10,6 +10,7 @@ import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,6 +22,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @Service
 @Slf4j
+//@AllArgsConstructor
 public class ProductsServiceImpl implements ProductsService {
 
     @Autowired
