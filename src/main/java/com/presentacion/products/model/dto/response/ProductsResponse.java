@@ -23,7 +23,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class ProductsResponse {
 
     @ApiModelProperty(value = "id" , position = 1, example = "1")
-    private Long id;
+    private String id;
     @ApiModelProperty(value = "numberDocument", required = true , position = 2, example = "77777777")
     private Integer numberDocument;
     @ApiModelProperty(value = "active", required = true , position = 3)

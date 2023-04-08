@@ -3,6 +3,7 @@ package com.presentacion.products.service.impl;
 import com.presentacion.products.model.dto.request.ProductsRequest;
 import com.presentacion.products.model.dto.response.ProductsResponse;
 import com.presentacion.products.model.thirthparthy.Customer;
+import com.presentacion.products.model.thirthparthy.ListCustomer;
 import com.presentacion.products.repository.ProductsRepository;
 import com.presentacion.products.service.ProductsService;
 import com.presentacion.products.util.ProductsBuilder;
@@ -16,6 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Clase que contiene la lógica del Produts respecto al CRUD
@@ -63,7 +68,12 @@ public class ProductsServiceImpl implements ProductsService {
     @Override
     public Single<ProductsResponse> saveProduct(ProductsRequest request) {
         return Single.just(ProductsBuilder.ProductsRequestToProductEntity(request))
-                .filter(products -> products.getNumberDocument().equals(getCustomer().getNumberDocument()))
+                //.filter(products -> products.getNumberDocument().equals(getCustomer().getNumberDocument()))
+                .filter(products -> {
+                    System.out.println(Arrays.stream(getCustomer()).collect(Collectors.toList()));
+                    return products.getNumberDocument() != null;
+
+                })
                 .map(products -> productsRepository.save(products))
                 .map(products -> ProductsBuilder.productEntityToProductResponse(products))
                 .subscribeOn(Schedulers.io())
@@ -84,9 +94,9 @@ public class ProductsServiceImpl implements ProductsService {
     /***
      * Este método ayuda a obtener los datos de los clientes
      **/
-    public Customer getCustomer() {
+    public Customer[]  getCustomer() {
         log.info("Extrayendo registros del Cliente");
-        Customer customer= clienteRest.getForObject(dataCustomer, Customer.class);
+        Customer[] customer= clienteRest.getForObject(dataCustomer, Customer[].class);
         return customer;
     }
 }

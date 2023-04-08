@@ -19,7 +19,7 @@ public class Products {
 
     @Id
     @JsonProperty("id")
-    private Long id;
+    private String id;
     private Integer numberDocument;
     private Active active;
     private Pasive pasive;
